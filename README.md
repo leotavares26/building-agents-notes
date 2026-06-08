@@ -21,6 +21,9 @@ Models call tools the way junior developers read docs: literally and optimistica
 ### Context is a budget, spend it deliberately
 Stuffing everything into the prompt "just in case" makes agents slower, costlier, and *worse* — relevant signal gets buried. Retrieve the slice you need; drop the rest.
 
+### Keep state boring
+Agents get weird when state only lives in chat history. Store durable facts in plain structs or tables with names that match the workflow, then rebuild the prompt from that state. If you can't diff or replay it, debugging becomes archaeology.
+
 ### Bound your loops
 Every retry, reflection, or replan needs a hard ceiling. Unbounded loops are how a $0.02 task becomes a $40 one while you're asleep.
 
