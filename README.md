@@ -18,6 +18,9 @@ The first time an agent does something baffling in production, you'll wish you h
 ### Tool design is API design
 Models call tools the way junior developers read docs: literally and optimistically. Tight schemas, clear names, defensive validation, and helpful error messages do more for reliability than a bigger model.
 
+### Make handoffs explicit
+If one agent hands work to another, write the contract down: input, owner, expected output, deadline, and what to do when it fails. "Please investigate" is not a handoff; it's context leakage with a Slack notification attached.
+
 ### Context is a budget, spend it deliberately
 Stuffing everything into the prompt "just in case" makes agents slower, costlier, and *worse* — relevant signal gets buried. Retrieve the slice you need; drop the rest.
 
