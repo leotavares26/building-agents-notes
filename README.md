@@ -21,6 +21,9 @@ Models call tools the way junior developers read docs: literally and optimistica
 ### Route work by failure cost
 Model routing should start with the blast radius, not the benchmark chart. Cheap, reversible steps can use faster models and loose checks; expensive side effects deserve stronger models, tighter contracts, and a human checkpoint.
 
+### Treat side effects as commits
+Before an agent changes the world, make it assemble the exact artifact first: the email body, SQL query, API request, file diff, or invoice action. Verify that artifact, attach an idempotency key when the system supports one, then execute once. Vague instructions plus direct tool access are how duplicate charges and mystery emails happen.
+
 ### Make handoffs explicit
 If one agent hands work to another, write the contract down: input, owner, expected output, deadline, and what to do when it fails. "Please investigate" is not a handoff; it's context leakage with a Slack notification attached.
 
