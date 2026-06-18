@@ -36,6 +36,9 @@ Agents get weird when state only lives in chat history. Store durable facts in p
 ### Bound your loops
 Every retry, reflection, or replan needs a hard ceiling. Unbounded loops are how a $0.02 task becomes a $40 one while you're asleep.
 
+### Scope permissions like product surface area
+An agent with a broad token is a production feature, whether you meant to ship it or not. Give each workflow the narrowest credentials and tool set it needs, then fail closed when scope is missing. Prompts ask nicely; permissions enforce.
+
 ### Make failure cheap and visible
 Agents will fail. Design so failures are reversible (dry-runs, drafts, approvals) and loud (alerts, traces) rather than silent and expensive.
 
