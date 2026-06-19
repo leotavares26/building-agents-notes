@@ -39,6 +39,9 @@ Every retry, reflection, or replan needs a hard ceiling. Unbounded loops are how
 ### Scope permissions like product surface area
 An agent with a broad token is a production feature, whether you meant to ship it or not. Give each workflow the narrowest credentials and tool set it needs, then fail closed when scope is missing. Prompts ask nicely; permissions enforce.
 
+### Make uncertainty actionable
+A confidence score is only useful if it changes behavior. Ask the agent to return what it knows, what it is assuming, and the next check that would reduce risk. Then route low-confidence outputs to retrieval, tests, or human review instead of letting them sound authoritative.
+
 ### Make failure cheap and visible
 Agents will fail. Design so failures are reversible (dry-runs, drafts, approvals) and loud (alerts, traces) rather than silent and expensive.
 
