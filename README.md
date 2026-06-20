@@ -42,6 +42,9 @@ An agent with a broad token is a production feature, whether you meant to ship i
 ### Make uncertainty actionable
 A confidence score is only useful if it changes behavior. Ask the agent to return what it knows, what it is assuming, and the next check that would reduce risk. Then route low-confidence outputs to retrieval, tests, or human review instead of letting them sound authoritative.
 
+### Capture receipts, not vibes
+When an agent finishes a task, make it return the concrete proof: commit hashes, URLs, request ids, screenshots, test commands, or the exact diff it applied. Summaries are helpful for humans, but receipts are what let the next agent verify, resume, or roll back without guessing.
+
 ### Make failure cheap and visible
 Agents will fail. Design so failures are reversible (dry-runs, drafts, approvals) and loud (alerts, traces) rather than silent and expensive.
 
