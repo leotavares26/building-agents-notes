@@ -45,6 +45,9 @@ A confidence score is only useful if it changes behavior. Ask the agent to retur
 ### Capture receipts, not vibes
 When an agent finishes a task, make it return the concrete proof: commit hashes, URLs, request ids, screenshots, test commands, or the exact diff it applied. Summaries are helpful for humans, but receipts are what let the next agent verify, resume, or roll back without guessing.
 
+### Design for resume, not restart
+Long-running agents should checkpoint after each irreversible step: input hash, cursor, last successful side effect, and the next safe action. If the process dies halfway through, the correct behavior should be “continue from here,” not “rerun the whole thing and hope idempotency saves us.”
+
 ### Make failure cheap and visible
 Agents will fail. Design so failures are reversible (dry-runs, drafts, approvals) and loud (alerts, traces) rather than silent and expensive.
 
