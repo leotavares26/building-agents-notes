@@ -18,6 +18,9 @@ The first time an agent does something baffling in production, you'll wish you h
 ### Tool design is API design
 Models call tools the way junior developers read docs: literally and optimistically. Tight schemas, clear names, defensive validation, and helpful error messages do more for reliability than a bigger model.
 
+### Return errors the agent can use
+"Something went wrong" is a dead end. Tool errors should include a stable code, the field or resource that failed, whether retrying is safe, and the smallest next action that could fix it. Agents recover better from structured friction than from apologetic prose.
+
 ### Route work by failure cost
 Model routing should start with the blast radius, not the benchmark chart. Cheap, reversible steps can use faster models and loose checks; expensive side effects deserve stronger models, tighter contracts, and a human checkpoint.
 
