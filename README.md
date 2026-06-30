@@ -51,6 +51,9 @@ When an agent finishes a task, make it return the concrete proof: commit hashes,
 ### Design for resume, not restart
 Long-running agents should checkpoint after each irreversible step: input hash, cursor, last successful side effect, and the next safe action. If the process dies halfway through, the correct behavior should be “continue from here,” not “rerun the whole thing and hope idempotency saves us.”
 
+### Treat cancellation as a product path
+A stuck agent should have a boring way out: stop accepting new side effects, persist what already happened, and return the next safe owner action. If cancel just means killing the process, you are one timeout away from half-sent emails, orphaned jobs, or a retry storm.
+
 ### Make failure cheap and visible
 Agents will fail. Design so failures are reversible (dry-runs, drafts, approvals) and loud (alerts, traces) rather than silent and expensive.
 
