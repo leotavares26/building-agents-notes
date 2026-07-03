@@ -54,6 +54,9 @@ Long-running agents should checkpoint after each irreversible step: input hash, 
 ### Treat cancellation as a product path
 A stuck agent should have a boring way out: stop accepting new side effects, persist what already happened, and return the next safe owner action. If cancel just means killing the process, you are one timeout away from half-sent emails, orphaned jobs, or a retry storm.
 
+### Normalize tool outputs at the boundary
+Third-party APIs return whatever shape their product team needed, not what your agent can reason over safely. Convert raw responses into small, stable structs with the fields the workflow actually needs, plus a source URL or request id. The prompt should see facts, not an SDK dump.
+
 ### Make failure cheap and visible
 Agents will fail. Design so failures are reversible (dry-runs, drafts, approvals) and loud (alerts, traces) rather than silent and expensive.
 
