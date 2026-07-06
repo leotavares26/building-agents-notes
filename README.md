@@ -60,6 +60,9 @@ Third-party APIs return whatever shape their product team needed, not what your 
 ### Make failure cheap and visible
 Agents will fail. Design so failures are reversible (dry-runs, drafts, approvals) and loud (alerts, traces) rather than silent and expensive.
 
+### Report partial progress precisely
+Most useful agent runs are not binary successes. Have them separate completed, skipped, blocked, and risky items in the final receipt, with enough detail for the next run to continue. "Done except a few edge cases" is where follow-up work goes to die.
+
 ---
 
 These notes grow as I learn. Spot something you disagree with? Open an issue — I like being argued with when there's a better answer on the other side.
