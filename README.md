@@ -60,6 +60,9 @@ A stuck agent should have a boring way out: stop accepting new side effects, per
 ### Normalize tool outputs at the boundary
 Third-party APIs return whatever shape their product team needed, not what your agent can reason over safely. Convert raw responses into small, stable structs with the fields the workflow actually needs, plus a source URL or request id. The prompt should see facts, not an SDK dump.
 
+### Version prompts with the code
+A prompt change can break a workflow as easily as a code change. Keep prompts, tool schemas, eval cases, and migration notes in the same review path so you can trace why behavior changed instead of guessing from production logs.
+
 ### Make failure cheap and visible
 Agents will fail. Design so failures are reversible (dry-runs, drafts, approvals) and loud (alerts, traces) rather than silent and expensive.
 
