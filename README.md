@@ -63,6 +63,9 @@ Third-party APIs return whatever shape their product team needed, not what your 
 ### Version prompts with the code
 A prompt change can break a workflow as easily as a code change. Keep prompts, tool schemas, eval cases, and migration notes in the same review path so you can trace why behavior changed instead of guessing from production logs.
 
+### Pin the model like a dependency
+Providers ship silent updates and deprecations, so a workflow that passed yesterday can regress overnight with zero code changes. Pin the exact model id and sampling params in config, and re-run your eval set whenever you bump a model or the provider ships one under you. A model upgrade is a dependency upgrade: it belongs behind a diff and a green eval run, not an act of faith.
+
 ### Make failure cheap and visible
 Agents will fail. Design so failures are reversible (dry-runs, drafts, approvals) and loud (alerts, traces) rather than silent and expensive.
 
