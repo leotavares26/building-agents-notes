@@ -39,6 +39,9 @@ Agents get weird when state only lives in chat history. Store durable facts in p
 ### Bound your loops
 Every retry, reflection, or replan needs a hard ceiling. Unbounded loops are how a $0.02 task becomes a $40 one while you're asleep.
 
+### Make the finish condition a check, not a vibe
+An agent should stop because something external confirms the work is done, not because the model ran out of things to say or hit its loop ceiling. Write the stopping condition as a verifier the loop can call — tests pass, the schema validates, the required fields are populated, the diff applies cleanly — and end the moment it's satisfied. A budget cap is a safety net, not a definition of done. Without an explicit finish check, agents either quit early on a plausible-looking answer or grind to the ceiling, and afterward you can't tell which one happened.
+
 ### Scope permissions like product surface area
 An agent with a broad token is a production feature, whether you meant to ship it or not. Give each workflow the narrowest credentials and tool set it needs, then fail closed when scope is missing. Prompts ask nicely; permissions enforce.
 
